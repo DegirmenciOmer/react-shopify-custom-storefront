@@ -1,18 +1,21 @@
 import Home from './pages/Home'
 import ProductPages from './pages/ProductPages'
 import {
-  useParams,
-  Link,
+  // useParams,
+  // Link,
   BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Cart from './components/Cart'
 
 function App() {
   return (
     <div className='App'>
       <Router>
-        <div>header</div>
+        <Navbar />
+        <Cart />
         <Switch>
           <Route path={'/products/:handle'}>
             <ProductPages />
