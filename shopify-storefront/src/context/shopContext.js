@@ -35,15 +35,29 @@ class ShopProvider extends Component {
       this.setState({ checkout })
     })
   }
-  addItemToCheckout = async () => {}
-  removeLineItem = async (lineItemIdsToRemove) => {}
+  addItemToCheckout = async (variantId, quantity) => {
+    const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
+    const checkout = await client.checkout.addLineItems(
+      this.state.checkout.id,
+      lineItemsToAdd
+    )
+    this.setState({ checkout })
+    this.openCart()
+  }
+
+  removeLineItem = async (lineItemIdsToRemove) => {
+    const checkout = client.checkout.removeLineItems(
+      this.state.checkout.id,
+      lineItemIdsToRemove
+    )
+    this.setState({ checkout })
+  }
   fetchAllProducts = async () => {
     const products = await client.product.fetchAll()
     this.setState({ products })
   }
   fetchProductWithHandle = async (handle) => {
     const product = await client.product.fetchByHandle(handle)
-    console.log(product)
     this.setState({ product })
   }
   closeCart = async () => {
@@ -56,7 +70,6 @@ class ShopProvider extends Component {
   openMenu = async () => {}
 
   render() {
-    console.log(this.state.checkout, 'this.state.checkout')
     return (
       <ShopContext.Provider
         value={{

@@ -9,7 +9,6 @@ const Home = () => {
   useEffect(() => {
     fetchAllProducts()
   }, [fetchAllProducts])
-  console.log(products)
   return (
     <Box>
       <Grid templateColumns='repeat(3, 1fr)'>
