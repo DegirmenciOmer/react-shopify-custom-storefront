@@ -9,12 +9,17 @@ import {
 } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Cart from './components/Cart'
+import NavMenu from './components/NavMenu'
+import Footer from './components/Footer'
+import Hero from './components/Hero'
 
 function App() {
   return (
     <div className='App'>
       <Router>
+        <Hero />
         <Navbar />
+        <NavMenu />
         <Cart />
         <Switch>
           <Route path={'/products/:handle'}>
@@ -24,7 +29,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
-        <div>footer</div>
+        <Footer />
       </Router>
     </div>
   )

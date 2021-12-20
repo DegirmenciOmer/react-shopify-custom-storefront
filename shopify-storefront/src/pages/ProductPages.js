@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { ShopContext } from '../context/shopContext'
-import { Box, Button, Grid, Heading, Image, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, Heading, Image, Text } from '@chakra-ui/react'
 
 const ProductPages = () => {
   const { handle } = useParams()
@@ -14,22 +14,30 @@ const ProductPages = () => {
   }, [fetchProductWithHandle, handle])
 
   return (
-    <Box>
+    <Box p='2em'>
       {!product.title ? (
         <Text>Loading</Text>
       ) : (
-        <Grid templateColumns='repeat(2,1fr)'>
-          <Image src={product.images[0].src} />
-          <Box>
-            <Heading>{product.title}</Heading>
-            <Text>€{product.variants[0].price}</Text>
-            <Text>{product.description}</Text>
+        <Grid m='auto' templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)']}>
+          <Flex justifyContent='center' alignItems='center'>
+            <Image src={product.images[0].src} />
+          </Flex>
+          <Flex
+            pl='2em'
+            flexDirection='column'
+            alignItems='center'
+            justifyContent='center'
+          >
+            <Heading pb='2rem'>{product.title}</Heading>
+            <Text pb='2rem'>€{product.variants[0].price}</Text>
+            <Text pb='2rem'>{product.description}</Text>
             <Button
+              colorScheme='pink'
               onClick={() => addItemToCheckout(product.variants[0].id, 1)}
             >
               Add To Cart
             </Button>
-          </Box>
+          </Flex>
         </Grid>
       )}
     </Box>
