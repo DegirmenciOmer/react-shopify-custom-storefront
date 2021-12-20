@@ -9,12 +9,14 @@ import {
 } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Cart from './components/Cart'
+import NavMenu from './components/NavMenu'
 
 function App() {
   return (
     <div className='App'>
       <Router>
         <Navbar />
+        <NavMenu />
         <Cart />
         <Switch>
           <Route path={'/products/:handle'}>

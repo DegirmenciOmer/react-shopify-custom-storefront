@@ -66,8 +66,15 @@ class ShopProvider extends Component {
   openCart = async () => {
     this.setState({ isCartOpen: true })
   }
-  closeMenu = async () => {}
-  openMenu = async () => {}
+  openMenu = async () => {
+    this.setState({ isMenuOpen: true })
+    console.log('Open Menu')
+  }
+
+  closeMenu = async () => {
+    this.setState({ isMenuOpen: false })
+    console.log('CloseMenu')
+  }
 
   render() {
     return (

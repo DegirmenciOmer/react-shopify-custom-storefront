@@ -30,14 +30,19 @@ const Cart = () => {
 
   return (
     <>
-      <Drawer isOpen={isCartOpen} placement='right' onClose={closeCart}>
+      <Drawer
+        size='sm'
+        isOpen={isCartOpen}
+        placement='right'
+        onClose={closeCart}
+      >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Shopping Cart</DrawerHeader>
 
           <DrawerBody>
-            {checkout.lineItems &&
+            {checkout.lineItems?.length > 0 ? (
               checkout.lineItems.map((lineItem) => (
                 <Grid
                   templateColumns='repeat(5, 1fr)'
@@ -65,13 +70,20 @@ const Cart = () => {
                     <Text>{lineItem.variant.price}</Text>
                   </Flex>
                 </Grid>
-              ))}
+              ))
+            ) : (
+              <Flex h='100%' justifyContent='center' alignItems='center'>
+                <Text color='red'>Your cart is empty.</Text>
+              </Flex>
+            )}
           </DrawerBody>
 
           <DrawerFooter>
             {checkout.webUrl ? (
               <Link href={checkout.webUrl}>
-                <Button>Checkout</Button>
+                <Button disabled={checkout.lineItems.length === 0}>
+                  Checkout
+                </Button>
               </Link>
             ) : (
               <Button disabled>Checkout</Button>
