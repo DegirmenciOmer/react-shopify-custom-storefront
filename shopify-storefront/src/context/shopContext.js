@@ -11,8 +11,8 @@ const client = Client.buildClient({
 
 class ShopProvider extends Component {
   state = {
-    product: {},
     products: [],
+    product: {},
     checkout: {},
     isCartOpen: false,
     isMenuOpen: false,
@@ -46,11 +46,11 @@ class ShopProvider extends Component {
   }
 
   removeLineItem = async (lineItemIdsToRemove) => {
-    const checkout = client.checkout.removeLineItems(
-      this.state.checkout.id,
-      lineItemIdsToRemove
-    )
-    this.setState({ checkout })
+    const checkoutId = this.state.checkout.id
+
+    client.checkout
+      .removeLineItems(checkoutId, lineItemIdsToRemove)
+      .then((checkout) => this.setState({ checkout }))
   }
   fetchAllProducts = async () => {
     const products = await client.product.fetchAll()
