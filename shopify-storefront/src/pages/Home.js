@@ -17,7 +17,6 @@ const Home = () => {
         description='Enjoy your Bath Bombs with a fun, relaxing and colorful night.'
         heading='The relaxation you have been waiting for.'
       />
-
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(3, 1fr)']}>
         {products.length === 0 ? (
           <div>Loading...</div>
@@ -28,8 +27,12 @@ const Home = () => {
                 _hover={{ opacity: '80%' }}
                 textAlign='center'
                 position='relative'
+                boxShadow='1px 2px 5px black'
+                borderRadius='25% 10%'
+                m='1.5em'
+                mt='1em'
               >
-                <Image src={product.images[0].src} />
+                <Image borderRadius='25% 10%' src={product.images[0].src} />
                 <Text
                   fontWeight='bold'
                   position='absolute'
@@ -47,12 +50,17 @@ const Home = () => {
         )}{' '}
       </Grid>
       <RichText heading='Treat yourself!' />
-
+      <ImageWithText
+        button
+        text='Lorem ipsum dolor sit amet'
+        heading='Lorem ipsum'
+        image='https://cdn.shopify.com/s/files/1/0472/5705/9496/files/premium-bath-bombs.jpg?v=1610066758'
+      />
       <ImageWithText
         button
         text='Lorem ipsum dolor sit amet'
         reverse
-        heading='hjading'
+        heading='Lorem ipsum'
         image='https://cdn.shopify.com/s/files/1/0472/5705/9496/files/premium-bath-bombs.jpg?v=1610066758'
       />
     </Box>
