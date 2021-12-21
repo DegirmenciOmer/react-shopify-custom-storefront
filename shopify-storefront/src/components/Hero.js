@@ -3,7 +3,7 @@ import { Box, Button, Center, Image, Text } from '@chakra-ui/react'
 
 const Hero = () => {
   return (
-    <Box backgroundColor='#FFA8E2' w='100%' position='relative' h='70vh'>
+    <Box backgroundColor='#FFA8E2' w='100%' position='relative' h='74vh'>
       <Image
         className='fade-in'
         h='100%'
@@ -15,12 +15,12 @@ const Hero = () => {
       <Text
         className='tracking-in-expand-fwd'
         position='absolute'
-        bottom='20%'
+        bottom='10%'
         w='100%'
         textAlign='center'
         color='white'
         fontWeight='bold'
-        fontSize='4rem'
+        fontSize='3.5rem'
       >
         Discover Bath Bombs
       </Text>
@@ -31,7 +31,7 @@ const Hero = () => {
           color='white'
           _hover={{ opacity: '70%' }}
           position='absolute'
-          bottom='10%'
+          bottom='0%'
         >
           Shop Now
         </Button>
