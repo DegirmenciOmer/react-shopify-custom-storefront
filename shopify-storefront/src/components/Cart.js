@@ -18,15 +18,8 @@ import {
 } from '@chakra-ui/react'
 
 const Cart = () => {
-  const [lineItems, setLineItems] = useState([])
   const { isCartOpen, checkout, closeCart, removeLineItem } =
     useContext(ShopContext)
-  console.log({ checkout })
-  console.log(checkout.webUrl)
-  //console.log({ checkout })
-  // {lineItems.length === 0
-  //   ? 'Your cart is empty'
-  //   : lineItems.map((lineItem) => <Text>{lineItem.title}</Text>)}
 
   return (
     <>
