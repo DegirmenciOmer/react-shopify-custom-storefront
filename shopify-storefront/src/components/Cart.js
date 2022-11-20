@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { ShopContext } from '../context/shopContext'
-import { CloseIcon } from '@chakra-ui/icons'
+import React, { useContext } from "react";
+import { ShopContext } from "../context/shopContext";
+import { CloseIcon } from "@chakra-ui/icons";
 import {
   Drawer,
   DrawerBody,
@@ -15,18 +15,18 @@ import {
   Flex,
   Image,
   Link,
-} from '@chakra-ui/react'
+} from "@chakra-ui/react";
 
 const Cart = () => {
   const { isCartOpen, checkout, closeCart, removeLineItem } =
-    useContext(ShopContext)
+    useContext(ShopContext);
 
   return (
     <>
       <Drawer
-        size='sm'
+        size="sm"
         isOpen={isCartOpen}
-        placement='right'
+        placement="right"
         onClose={closeCart}
       >
         <DrawerOverlay />
@@ -35,46 +35,46 @@ const Cart = () => {
           <DrawerHeader>Shopping Cart</DrawerHeader>
 
           <DrawerBody>
-            {checkout.lineItems?.length > 0 ? (
+            {checkout?.lineItems?.length > 0 ? (
               checkout.lineItems.map((lineItem) => (
                 <Grid
-                  templateColumns='repeat(5, 1fr)'
+                  templateColumns="repeat(5, 1fr)"
                   gap={1}
                   key={lineItem.id}
                 >
-                  <Flex alignItems='center' justifyContent='center'>
+                  <Flex alignItems="center" justifyContent="center">
                     <Button
                       onClick={() => removeLineItem(lineItem.id, checkout.id)}
-                      variant='ghost'
+                      variant="ghost"
                     >
                       <CloseIcon />
                     </Button>
                   </Flex>
-                  <Flex alignItems='center' justifyContent='center'>
+                  <Flex alignItems="center" justifyContent="center">
                     <Image src={lineItem.variant.image.src} />
                   </Flex>
-                  <Flex alignItems='center' justifyContent='center'>
+                  <Flex alignItems="center" justifyContent="center">
                     {lineItem.title}
                   </Flex>
-                  <Flex alignItems='center' justifyContent='center'>
+                  <Flex alignItems="center" justifyContent="center">
                     X {lineItem.quantity}
                   </Flex>
-                  <Flex alignItems='center' justifyContent='center'>
+                  <Flex alignItems="center" justifyContent="center">
                     <Text>{lineItem.variant.price}</Text>
                   </Flex>
                 </Grid>
               ))
             ) : (
-              <Flex h='100%' justifyContent='center' alignItems='center'>
-                <Text color='red'>Your cart is empty.</Text>
+              <Flex h="100%" justifyContent="center" alignItems="center">
+                <Text color="red">Your cart is empty.</Text>
               </Flex>
             )}
           </DrawerBody>
 
           <DrawerFooter>
-            {checkout.webUrl ? (
-              <Link href={checkout.webUrl}>
-                <Button disabled={checkout.lineItems.length === 0}>
+            {checkout?.webUrl ? (
+              <Link href={checkout?.webUrl}>
+                <Button disabled={checkout?.lineItems.length === 0}>
                   Checkout
                 </Button>
               </Link>
@@ -85,7 +85,7 @@ const Cart = () => {
         </DrawerContent>
       </Drawer>
     </>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;
