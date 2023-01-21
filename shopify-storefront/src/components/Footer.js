@@ -30,7 +30,7 @@ const Footer = () => {
           borderTop='1px solid white'
           p='1rem'
         >
-          © Copyright www.workingwithshopify.com
+          © 2023
         </Text>
       </Box>
     </Box>
