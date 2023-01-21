@@ -52,7 +52,7 @@ const Home = () => {
         text='Made with all natural ingredients, this bath bomb will transport you to a state of ultimate relaxation. The green blast scent will invigorate your senses and leave your skin feeling refreshed and rejuvenated. Perfect for winding down after a long day, the Green Blast Bath Bomb is the ultimate in self-care. So why not treat yourself to the ultimate bath experience? Order your Green Blast Bath Bomb today!'
         reverse
         heading='Perfect for winding down after a long day'
-        image='https://cdn.shopify.com/s/files/1/0472/5705/9496/files/premium-bath-bombs.jpg?v=1610066758'
+        image='/bathbombs1.jpg'
       />
     </Box>
   )
