@@ -1,19 +1,36 @@
 import React from 'react'
-import { Box, Flex, Button, Text, Image, Heading } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Button,
+  Text,
+  Image,
+  Heading,
+  useMediaQuery,
+} from '@chakra-ui/react'
 
 const ImageWithText = ({ button, text, reverse, image, heading }) => {
+  const isSmallScreen = useMediaQuery('(max-width: 480px)')
+
   return (
     <Box>
-      <Flex w='100%' flexDir={['column', reverse ? 'row-reverse' : 'row']}>
+      <Flex
+        w='100%'
+        flexDir={[
+          'column',
+          isSmallScreen[0] ? 'column' : reverse ? 'row-reverse' : 'row',
+        ]}
+      >
         <Image objectFit='cover' w={['100%', '50%']} src={image} />
         <Flex
           justifyContent='center'
           alignItems='center'
           flexDir='column'
           w={['100%', '50%']}
+          m='4'
         >
           <Heading>{heading && heading}</Heading>
-          <Text>{text && text}</Text>
+          <Text my='10'>{text && text}</Text>
           {button ? (
             <Button
               w='10rem'
