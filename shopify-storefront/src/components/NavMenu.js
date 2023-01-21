@@ -4,21 +4,15 @@ import { Link } from 'react-router-dom'
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Button,
-  Text,
-  Grid,
-  Flex,
-  Image,
   VStack,
 } from '@chakra-ui/react'
 
 const NavMenu = () => {
-  const { openMenu, closeMenu, checkout, isMenuOpen } = useContext(ShopContext)
+  const { closeMenu, isMenuOpen } = useContext(ShopContext)
 
   return (
     <Drawer isOpen={isMenuOpen} placement='left' onClose={closeMenu}>
